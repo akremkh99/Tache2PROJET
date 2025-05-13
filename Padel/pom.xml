@@ -24,7 +24,12 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>8.21.0</version> <!-- Version stable au moment de l'écriture -->
+        </dependency>
+       
         <!-- JavaFX FXML -->
         <dependency>
             <groupId>org.openjfx</groupId>

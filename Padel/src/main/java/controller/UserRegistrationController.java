@@ -4,6 +4,7 @@ import com.example.padel.Tournament;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import service.TwilioService; // Importez la classe TwilioService
 import service.TournamentService;
 
 import java.util.List;
@@ -79,6 +80,10 @@ public class UserRegistrationController {
         // Appeler le service pour inscrire le participant
         boolean isRegistered = tournamentService.registerParticipant(selectedTournament.getId(), firstName, lastName, phoneNumber);
         if (isRegistered) {
+            // Envoyer un SMS de confirmation
+            String messageBody = "Hbibi vous êtes inscrit avec succès au " + selectedTournament.getTitre();
+            TwilioService.sendSMS("+21655596014", messageBody); // Numéro fixe pour recevoir le SMS
+
             showAlert(Alert.AlertType.INFORMATION, "Succès", "Vous êtes inscrit avec succès !");
             clearFields();
         } else {

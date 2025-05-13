@@ -7,6 +7,7 @@ module com.example.padel {
     requires java.desktop;     // Pour MySQL Connector/J
     requires javafx.web;
     requires jdk.jsobject;
+    requires twilio;
 
     // Exporte les packages pour rendre leurs classes accessibles à d'autres modules
     exports com.example.padel;      // Exporte le package principal
