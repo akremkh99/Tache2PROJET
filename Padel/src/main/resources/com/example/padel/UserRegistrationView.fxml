@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserRegistrationController">
+    <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <!-- En-tête avec Logo, Titre et Sous-Titre -->
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <!-- Logo -->
+            <ImageView fitWidth="60" fitHeight="60">
+                <Image url="@logo.png" />
+            </ImageView>
+
+            <!-- Conteneur Vertical pour le Titre et le Sous-Titre -->
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Padel Maa Chabeb" style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+                <Label text="(Inscription)" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" />
+            </VBox>
+        </HBox>
+
+        <!-- Liste déroulante des tournois -->
+        <ComboBox fx:id="tournamentComboBox" promptText="Sélectionnez un tournoi" prefWidth="400" />
+
+        <!-- Champs pour le prénom, nom et numéro de téléphone -->
+        <TextField fx:id="firstNameField" promptText="Prénom" prefWidth="400" />
+        <TextField fx:id="lastNameField" promptText="Nom" prefWidth="400" />
+        <TextField fx:id="phoneNumberField" promptText="Numéro de téléphone" prefWidth="400" />
+
+        <!-- Boutons Inscription et Désinscription -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="S'inscrire" onAction="#handleRegister" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5;" prefWidth="150" />
+            <Button text="Se désinscrire" onAction="#handleUnregister" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5;" prefWidth="150" />
+        </HBox>
+    </VBox>
+</AnchorPane>

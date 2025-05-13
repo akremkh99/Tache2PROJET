@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationController">
+    <top>
+        <Label text="Gestion des Inscriptions" style="-fx-font-size: 24px; -fx-font-weight: bold;" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <!-- Tableau des participants inscrits -->
+            <Label text="Participants Inscrits" style="-fx-font-weight: bold;" />
+            <TableView fx:id="registeredParticipantsTable" prefWidth="550" prefHeight="200">
+                <columns>
+                    <TableColumn text="Nom" prefWidth="150" fx:id="lastNameColumn" />
+                    <TableColumn text="Prénom" prefWidth="150" fx:id="firstNameColumn" />
+                    <TableColumn text="Numéro de téléphone" prefWidth="250" fx:id="phoneNumberColumn" />
+                </columns>
+            </TableView>
+
+            <!-- Tableau des participants en liste d'attente -->
+            <Label text="Liste d'Attente" style="-fx-font-weight: bold;" />
+            <TableView fx:id="waitingListTable" prefWidth="550" prefHeight="200">
+                <columns>
+                    <TableColumn text="Nom" prefWidth="150" fx:id="waitingLastNameColumn" />
+                    <TableColumn text="Prénom" prefWidth="150" fx:id="waitingFirstNameColumn" />
+                    <TableColumn text="Numéro de téléphone" prefWidth="250" fx:id="waitingPhoneNumberColumn" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

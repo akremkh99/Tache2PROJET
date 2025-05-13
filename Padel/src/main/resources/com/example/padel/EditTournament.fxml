@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditTournamentController"
+            stylesheets="@../styles.css"
+            style="-fx-background-image: url('/com/example/padel/ajouter.png'); -fx-background-size: cover; -fx-background-position: center;">
+    <VBox spacing="20" AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30"
+          style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-padding: 20;">
+        <!-- Titre -->
+        <Label text="Modifier un tournoi" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <!-- Champs de saisie -->
+        <Label text="Titre" style="-fx-font-size: 14px;" />
+        <TextField fx:id="titreField" prefWidth="200" style="-fx-font-size: 14px;" />
+
+        <Label text="Lieu" style="-fx-font-size: 14px;" />
+        <TextField fx:id="lieuField" prefWidth="200" style="-fx-font-size: 14px;" />
+
+        <Label text="Date de début" style="-fx-font-size: 14px;" />
+        <DatePicker fx:id="dateDebutPicker" prefWidth="250" />
+
+        <Label text="Date de fin" style="-fx-font-size: 14px;" />
+        <DatePicker fx:id="dateFinPicker" prefWidth="250" />
+
+        <Label text="Nombre de participants max" style="-fx-font-size: 14px;" />
+        <TextField fx:id="nbParticipantsMaxField" prefWidth="200" style="-fx-font-size: 14px;" />
+
+        <Label text="Statut" style="-fx-font-size: 14px;" />
+        <ComboBox fx:id="statusComboBox" prefWidth="250" />
+
+        <!-- Boutons Modifier et Annuler -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Modifier" onAction="#handleUpdate" style="-fx-pref-width: 120; -fx-font-size: 14px;" />
+            <Button text="Annuler" onAction="#handleCancel" style="-fx-pref-width: 120; -fx-font-size: 14px;" />
+        </HBox>
+    </VBox>
+</AnchorPane>

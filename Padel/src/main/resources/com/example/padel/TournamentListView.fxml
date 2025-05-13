@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TournamentListController"
+            style="-fx-background-color: #E6F0FA;"
+            stylesheets="@styless.css"> <!-- Lien vers le fichier CSS -->
+    <!-- Conteneur principal avec une disposition en VBox -->
+    <VBox spacing="10" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <!-- En-tête avec Logo et Titre au-dessus -->
+        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #FFFFFF; -fx-border-color: #0078D4; -fx-border-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <!-- Logo -->
+            <ImageView fitWidth="60" fitHeight="60" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);">
+                <Image url="@logo.png" />
+            </ImageView>
+
+            <!-- Titre -->
+            <VBox spacing="5">
+                <Label text="Padel Maa Chabeb" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #003087;" />
+                <Label text="(Gestion Des Tournois)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #666666;" />
+            </VBox>
+        </HBox>
+
+        <!-- Conteneur HBox pour la barre de boutons et la ListView -->
+        <HBox spacing="10" VBox.vgrow="ALWAYS">
+            <!-- Barre verticale des boutons à gauche -->
+            <VBox spacing="10" prefWidth="220" style="-fx-background-color: #FFFFFF; -fx-border-color: #0078D4; -fx-border-radius: 10 0 0 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <!-- Boutons alignés verticalement -->
+                <VBox spacing="10" alignment="CENTER_LEFT">
+                    <!-- Bouton Ajouter -->
+                    <Button text="Ajouter" onAction="#handleAddTournament" prefWidth="170" styleClass="button" />
+
+                    <!-- Bouton Modifier -->
+                    <Button text="Modifier" onAction="#handleEditTournament" prefWidth="170" styleClass="button" />
+
+                    <!-- Bouton Supprimer -->
+                    <Button text="Supprimer" onAction="#handleDeleteTournament" prefWidth="170" styleClass="button" />
+
+                    <!-- Bouton Rafraîchir -->
+                    <Button text="Rafraîchir" onAction="#handleRefreshTournaments" prefWidth="170" styleClass="button" />
+
+                    <!-- Bouton Gérer les inscriptions -->
+                    <Button text="Gérer les inscriptions" onAction="#handleManageRegistrations" prefWidth="170" styleClass="button" />
+
+                    <!-- Bouton pour afficher la carte -->
+                    <Button text="Afficher la Carte" onAction="#showMap" prefWidth="170" styleClass="button" />
+                </VBox>
+            </VBox>
+
+            <!-- ListView occupant toute la largeur à droite -->
+            <ListView fx:id="tournamentListView" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS"
+                      style="-fx-background-color: #FAFAFA; -fx-border-color: #0078D4; -fx-border-radius: 0 5 5 0; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2); -fx-cell-size: 160; -fx-padding: 10;" />
+        </HBox>
+    </VBox>
+</AnchorPane>

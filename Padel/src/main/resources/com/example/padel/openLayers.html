@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carte avec OpenLayers</title>
+    <!-- Inclure la bibliothèque OpenLayers -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            /* Optimisation pour éviter le flou */
+            image-rendering: -webkit-optimize-contrast;
+            -ms-interpolation-mode: nearest-neighbor;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    // Initialiser la carte OpenLayers
+    const map = new ol.Map({
+        target: 'map', // ID du conteneur HTML
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM() // Utiliser OpenStreetMap comme source de tuiles
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([10, 36]), // Coordonnées par défaut (Tunisie)
+            zoom: 5 // Niveau de zoom initial
+        })
+    });
+
+    // Créer un marqueur
+    const marker = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([10, 36])) // Position initiale (sera mise à jour)
+    });
+
+    const vectorSource = new ol.source.Vector({
+        features: [marker]
+    });
+
+    const vectorLayer = new ol.layer.Vector({
+        source: vectorSource
+    });
+
+    // Style du marqueur
+    const markerStyle = new ol.style.Style({
+        image: new ol.style.Icon({
+            src: 'https://openlayers.org/en/latest/examples/data/icon.png', // Icône par défaut
+            scale: 0.1
+        })
+    });
+    marker.setStyle(markerStyle);
+
+    map.addLayer(vectorLayer);
+
+    // Gérer le clic sur la carte
+    map.on('click', function (event) {
+        const coords = ol.proj.toLonLat(event.coordinate); // Convertir les coordonnées en longitude/latitude
+        const longitude = coords[0];
+        const latitude = coords[1];
+
+        // Mettre à jour la position du marqueur
+        marker.getGeometry().setCoordinates(event.coordinate);
+
+        // Envoyer les coordonnées à JavaFX
+        if (window.latitudeField && window.longitudeField) {
+            window.latitudeField.setText(latitude.toFixed(6)); // 6 décimales pour la précision
+            window.longitudeField.setText(longitude.toFixed(6));
+            console.log(`Coordonnées envoyées : Latitude ${latitude}, Longitude ${longitude}`);
+        } else {
+            console.error("Les champs JavaFX latitudeField ou longitudeField ne sont pas accessibles.");
+        }
+    });
+
+    // Fonction pour obtenir la position actuelle de l'utilisateur
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { longitude, latitude } = position.coords;
+
+                // Mettre à jour la position du marqueur
+                const newPosition = ol.proj.fromLonLat([longitude, latitude]);
+                marker.getGeometry().setCoordinates(newPosition);
+
+                // Centrer la carte sur la position de l'utilisateur
+                map.getView().setCenter(newPosition);
+                map.getView().setZoom(15); // Zoom plus proche pour voir l'emplacement actuel
+
+                console.log(`Position actuelle : longitude ${longitude}, latitude ${latitude}`);
+            },
+            (error) => {
+                console.error("Erreur de géolocalisation : ", error.message);
+                alert("Impossible d'obtenir votre position : " + error.message);
+            },
+            {
+                enableHighAccuracy: true, // Précision maximale
+                timeout: 10000, // Temps maximum d'attente (10 secondes)
+                maximumAge: 0 // Ne pas utiliser de position mise en cache
+            }
+        );
+    } else {
+        console.error("La géolocalisation n'est pas prise en charge par ce navigateur.");
+        alert("La géolocalisation n'est pas prise en charge par ce navigateur.");
+    }
+
+    // Ajuster la taille de la carte après le chargement
+    window.addEventListener('resize', () => {
+        map.updateSize();
+    });
+
+    // Forcer un recalcul initial si nécessaire
+    setTimeout(() => {
+        map.updateSize();
+    }, 100);
+
+    console.log("Carte OpenLayers initialisée.");
+</script>
+</body>
+</html>

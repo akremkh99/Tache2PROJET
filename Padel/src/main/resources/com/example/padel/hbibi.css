@@ -1,0 +1,61 @@
+/* styles.css */
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #e6f0fa, #f5f7fa);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.top-pane {
+    -fx-padding: 20;
+    -fx-background-color: rgba(135, 206, 235, 0.5); /* Bleu ciel léger semi-transparent (#87CEEB avec 50% d'opacité) */
+    -fx-border-color: #d3d3d3;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.left-pane {
+    -fx-padding: 20;
+    -fx-background-color: rgba(173, 216, 230, 0.5); /* Bleu clair semi-transparent (#ADD8E6 avec 50% d'opacité) */
+    -fx-border-color: #d3d3d3;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.center-pane {
+    -fx-padding: 20;
+    -fx-background-color: rgba(255, 255, 255, 0.85); /* Fond blanc semi-transparent */
+    -fx-border-color: #d0e0f0; /* Bordure bleu clair subtil */
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.list-view {
+    -fx-background-color: rgba(249, 249, 249, 0.9); /* Fond gris clair semi-transparent */
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.button {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-border-radius: 5;
+}
+
+.edit-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.delete-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-padding: 5 10;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}

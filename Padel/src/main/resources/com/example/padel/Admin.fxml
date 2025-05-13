@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController"
+            styleClass="root" stylesheets="@/com/example/padel/hbibi.css">
+
+    <!-- En-tête avec Logo et Titre -->
+    <top>
+        <HBox spacing="15" alignment="CENTER_LEFT" styleClass="top-pane">
+            <!-- Logo -->
+            <ImageView fitWidth="60" fitHeight="60">
+                <Image url="@logo.png" />
+            </ImageView>
+
+            <!-- Titre et Sous-Titre -->
+            <VBox spacing="5">
+                <Label text="Padel Maa Chabeb" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+                <Label text="Administrateur" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #666666;" />
+            </VBox>
+        </HBox>
+    </top>
+
+    <!-- Barre de Navigation Latérale (Boutons Alignés Verticalement) -->
+    <left>
+        <VBox spacing="15" styleClass="left-pane">
+            <Button text="Gestion des Tournois" onAction="#handleTournaments" styleClass="button" prefWidth="200" prefHeight="50" />
+            <Button text="Gestion des Événements" onAction="#handleEvents" styleClass="button" prefWidth="200" prefHeight="50" />
+            <Button text="Gestion des Inscriptions" onAction="#handleRegistrations" styleClass="button" prefWidth="200" prefHeight="50" />
+        </VBox>
+    </left>
+
+    <!-- Zone Principale pour Afficher les Données -->
+    <center>
+        <VBox spacing="20" styleClass="center-pane">
+            <!-- Barre de Sélection pour les Inscriptions (déplacée en haut) -->
+            <HBox spacing="10" visible="false" managed="false" fx:id="registrationSelectionBar">
+                <Label text="Sélectionnez un tournoi :" />
+                <ComboBox fx:id="tournamentComboBox" prefWidth="200" />
+            </HBox>
+
+            <!-- ListView pour les Tournois, Événements ou Participants -->
+            <ListView fx:id="adminListView" prefWidth="800" prefHeight="400" visible="true" managed="true" styleClass="list-view" />
+
+            <!-- Boutons Modifier et Supprimer -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Modifier" fx:id="editButton" onAction="#editSelectedItem" styleClass="edit-button" />
+                <Button text="Supprimer" fx:id="deleteButton" onAction="#deleteSelectedItem" styleClass="delete-button" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

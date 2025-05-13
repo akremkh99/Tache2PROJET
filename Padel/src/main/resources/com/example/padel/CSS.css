@@ -1,0 +1,137 @@
+/* Palette de couleurs */
+.root {
+    -fx-background-color: #f0f2f5; /* Gris clair moderne */
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* VBox principale */
+.vbox-main {
+    -fx-background-color: #ffffff; /* Fond blanc pour la zone principale */
+    -fx-padding: 20;
+    -fx-spacing: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 2); /* Ombre légère */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* En-tête */
+.header-hbox {
+    -fx-alignment: center-left;
+    -fx-spacing: 15;
+    -fx-padding: 10 20;
+    -fx-background-color: #0078d4; /* Bleu vibrant */
+    -fx-background-radius: 8 8 0 0;
+}
+
+/* Titre */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff; /* Texte blanc pour contraste */
+}
+
+/* Sous-titre */
+.subheader-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #e0e0e0; /* Gris clair */
+}
+
+/* Boutons de navigation */
+.nav-button {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+.nav-button:hover {
+    -fx-background-color: #005ba1; /* Bleu plus foncé au survol */
+    -fx-scale-x: 1.05; /* Légère animation de zoom */
+    -fx-scale-y: 1.05;
+}
+
+.nav-button:pressed {
+    -fx-background-color: #003087; /* Bleu encore plus foncé */
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f4f4f9;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9; /* Alternance pour lisibilité */
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e6f0fa; /* Survol léger */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: white;
+}
+
+/* Boutons d'action (Modifier, Supprimer) */
+.action-button {
+    -fx-padding: 8 15;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.edit-button {
+    -fx-background-color: #28a745; /* Vert pour modifier */
+    -fx-text-fill: white;
+}
+
+.edit-button:hover {
+    -fx-background-color: #218838;
+}
+
+.delete-button {
+    -fx-background-color: #dc3545; /* Rouge pour supprimer */
+    -fx-text-fill: white;
+}
+
+.delete-button:hover {
+    -fx-background-color: #c82333;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #333333;
+}
+
+.combo-box:hover {
+    -fx-border-color: #0078d4;
+}
+
+/* Séparateurs */
+.separator {
+    -fx-background-color: #e0e0e0;
+    -fx-pref-height: 1;
+}

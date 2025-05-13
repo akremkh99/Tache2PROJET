@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageRegistrationsController">
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <!-- Titre -->
+        <Label fx:id="tournamentTitleLabel" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- Barre de recherche -->
+        <TextField fx:id="searchField" promptText="Rechercher un participant..." />
+
+        <!-- Tableau des participants -->
+        <TableView fx:id="participantsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn text="Nom" fx:id="lastNameColumn" />
+                <TableColumn text="Prénom" fx:id="firstNameColumn" />
+                <TableColumn text="Téléphone" fx:id="phoneNumberColumn" />
+            </columns>
+        </TableView>
+
+        <!-- Bouton Fermer -->
+        <Button text="Fermer" onAction="#handleClose" />
+    </VBox>
+</AnchorPane>
