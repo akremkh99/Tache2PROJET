@@ -16,9 +16,8 @@ import javafx.stage.Stage;
 import service.AdminService;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
-public class AdminController {
+public class AdminController3 {
 
     // ListView unifiée pour les tournois, événements, et participants
     @FXML

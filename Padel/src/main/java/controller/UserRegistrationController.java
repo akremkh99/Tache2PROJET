@@ -63,17 +63,27 @@ public class UserRegistrationController {
     @FXML
     private void handleRegister(ActionEvent event) {
         Tournament selectedTournament = tournamentComboBox.getValue();
+
+        // Validation de la sélection du tournoi
         if (selectedTournament == null) {
-            showAlert(Alert.AlertType.WARNING, "Aucun tournoi sélectionné", "Veuillez sélectionner un tournoi.");
+            showAlert(Alert.AlertType.WARNING, "Erreur de sélection", "Veuillez sélectionner un tournoi.");
             return;
         }
 
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
-        String phoneNumber = phoneNumberField.getText();
+        // Récupérer les valeurs des champs
+        String firstName = firstNameField.getText().trim();
+        String lastName = lastNameField.getText().trim();
+        String phoneNumber = phoneNumberField.getText().trim();
 
+        // Validation des champs obligatoires
         if (firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Champs vides", "Veuillez remplir tous les champs.");
+            return;
+        }
+
+        // Validation du format du numéro de téléphone
+        if (!isValidPhoneNumber(phoneNumber)) {
+            showAlert(Alert.AlertType.WARNING, "Numéro invalide", "Le numéro de téléphone doit commencer par '+216' et contenir 8 chiffres après.");
             return;
         }
 
@@ -97,17 +107,27 @@ public class UserRegistrationController {
     @FXML
     private void handleUnregister(ActionEvent event) {
         Tournament selectedTournament = tournamentComboBox.getValue();
+
+        // Validation de la sélection du tournoi
         if (selectedTournament == null) {
-            showAlert(Alert.AlertType.WARNING, "Aucun tournoi sélectionné", "Veuillez sélectionner un tournoi.");
+            showAlert(Alert.AlertType.WARNING, "Erreur de sélection", "Veuillez sélectionner un tournoi.");
             return;
         }
 
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
-        String phoneNumber = phoneNumberField.getText();
+        // Récupérer les valeurs des champs
+        String firstName = firstNameField.getText().trim();
+        String lastName = lastNameField.getText().trim();
+        String phoneNumber = phoneNumberField.getText().trim();
 
+        // Validation des champs obligatoires
         if (firstName.isEmpty() || lastName.isEmpty() || phoneNumber.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "Champs vides", "Veuillez remplir tous les champs.");
+            return;
+        }
+
+        // Validation du format du numéro de téléphone
+        if (!isValidPhoneNumber(phoneNumber)) {
+            showAlert(Alert.AlertType.WARNING, "Numéro invalide", "Le numéro de téléphone doit commencer par '+216' et contenir 8 chiffres après.");
             return;
         }
 
@@ -140,5 +160,13 @@ public class UserRegistrationController {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    /**
+     * Valide le format du numéro de téléphone.
+     * Le numéro doit commencer par '+216' et contenir 8 chiffres après.
+     */
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        return phoneNumber.matches("\\+216\\d{8}");
     }
 }

@@ -7,7 +7,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TournamentListController"
             style="-fx-background-color: #E6F0FA;"
-            stylesheets="@styless.css"> <!-- Lien vers le fichier CSS -->
+            styleClass="root">
     <!-- Conteneur principal avec une disposition en VBox -->
     <VBox spacing="10" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
         <!-- En-tête avec Logo et Titre au-dessus -->
@@ -31,22 +31,28 @@
                 <!-- Boutons alignés verticalement -->
                 <VBox spacing="10" alignment="CENTER_LEFT">
                     <!-- Bouton Ajouter -->
-                    <Button text="Ajouter" onAction="#handleAddTournament" prefWidth="170" styleClass="button" />
+                    <Button text="Ajouter" onAction="#handleAddTournament" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
 
                     <!-- Bouton Modifier -->
-                    <Button text="Modifier" onAction="#handleEditTournament" prefWidth="170" styleClass="button" />
+                    <Button text="Modifier" onAction="#handleEditTournament" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
 
                     <!-- Bouton Supprimer -->
-                    <Button text="Supprimer" onAction="#handleDeleteTournament" prefWidth="170" styleClass="button" />
+                    <Button text="Supprimer" onAction="#handleDeleteTournament" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
 
                     <!-- Bouton Rafraîchir -->
-                    <Button text="Rafraîchir" onAction="#handleRefreshTournaments" prefWidth="170" styleClass="button" />
+                    <Button text="Rafraîchir" onAction="#handleRefreshTournaments" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
 
                     <!-- Bouton Gérer les inscriptions -->
-                    <Button text="Gérer les inscriptions" onAction="#handleManageRegistrations" prefWidth="170" styleClass="button" />
+                    <Button text="Gérer les inscriptions" onAction="#handleManageRegistrations" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
 
                     <!-- Bouton pour afficher la carte -->
-                    <Button text="Afficher la Carte" onAction="#showMap" prefWidth="170" styleClass="button" />
+                    <Button text="Afficher la Carte" onAction="#showMap" prefWidth="170"
+                            style="-fx-background-color: linear-gradient(to bottom, #87ceeb, #1e90ff); -fx-text-fill: white; -fx-padding: 10 20; -fx-border-radius: 5; -fx-border-color: #FFD700; -fx-border-width: 2; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);" />
                 </VBox>
             </VBox>
 
